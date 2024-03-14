@@ -14,18 +14,25 @@ function input($data)
 // Check if form is submitted for user update, then redirect to homepage after update
 if(isset($_POST['update']))
 {	
-	$id = $_POST['id'];
-	$name = input($_POST["name"]);
-	$username = input($_POST["username"]);
-	$email = input($_POST["email"]);
-	$phone = input($_POST["phone"]);
-	$jobs = input($_POST["jobs"]);
+	if($_POST['accion']==1){
+		$id = $_POST['id'];
+		$name = input($_POST["name"]);
+		$username = input($_POST["username"]);
+		$email = input($_POST["email"]);
+		$phone = input($_POST["phone"]);
+		$jobs = input($_POST["jobs"]);
+		$result = mysqli_query($conn, "UPDATE users SET name='$name',username='$username',email='$email',phone='$phone',jobs='$jobs' WHERE id=$id");
+	}
+	if($_POST['accion']==2){
+		$id = $_POST['id'];
+		$animal_name = input($_POST["animal_name"]);
+		$animal_species = input($_POST["animal_species"]);
+		$animal_age = input($_POST["animal_age"]);
 		
-	// update user data
-	$result = mysqli_query($conn, "UPDATE users SET name='$name',username='$username',email='$email',phone='$phone',jobs='$jobs' WHERE id=$id");
-	
-	// Redirect to homepage to display updated user in list
+		$result = mysqli_query($conn, "UPDATE animals SET name='$animal_name',especie='$animal_species',edad='$animal_age' WHERE id=$id");
+	}
 	header("Location: index.php");
+
 }
 ?>
 <?php

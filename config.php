@@ -1,8 +1,4 @@
 <?php
-    $dbhost = "localhost";
-    $dbname = "crud";
-    $dbuname = "root";
-    $dbpass = "";
-
-    $conn = mysqli_connect($dbhost, $dbuname, $dbpass, $dbname);
-?>
+ 
+    $conn = mysqli_connect('localhost', 'arteche', 'Tjw62360$$', 'crud_app');
+    ?>
