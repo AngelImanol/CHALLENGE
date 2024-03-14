@@ -6,5 +6,5 @@ git checkout newcrud
 git add .
 git commit -m "ok"
 git checkout master
-git merge newgrud
+git merge newcrud
 history
